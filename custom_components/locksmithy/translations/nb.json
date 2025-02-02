@@ -1,0 +1,54 @@
+{
+  "config": {
+    "error": {
+      "same_name": "Name already in use"
+    },
+    "step": {
+      "user": {
+        "data": {
+          "alarm_level_or_user_code_entity_id": "Brukerkodesensor (fra lås)",
+          "alarm_type_or_access_control_entity_id": "Tilgangskontrollsensor (fra lås)",
+          "lock_entity_id": "Velg lås",
+          "slots": "Kodespor",
+          "start_from": "Start fra kodespor #",
+          "sensorname": "Dørsensor",
+          "lockname": "Låsnavn (dvs. frontdør)",
+          "parent": "Select parent lock",
+          "notify_script": "Notification Script",
+          "hide_pins": "Hide PINs in UI?"
+        },
+        "data_description": {
+          "notify_script": "If left blank, will default to script.locksmithy_[lock_name]_manual_notify"
+        },
+        "description": "Velg låsen du vil sette opp og kodesporene du vil opprette.",
+        "title": "LockSmithy"
+      }
+    }
+  },
+  "options": {
+    "error": {
+      "same_name": "Name already in use"
+    },
+    "step": {
+      "init": {
+        "data": {
+          "alarm_level_or_user_code_entity_id": "Brukerkodesensor (fra lås)",
+          "alarm_type_or_access_control_entity_id": "Tilgangskontrollsensor (fra lås)",
+          "lock_entity_id": "Velg lås",
+          "slots": "Kodespor",
+          "start_from": "Start fra kodespor #",
+          "sensorname": "Dørsensor",
+          "lockname": "Låsnavn (dvs. frontdør)",
+          "parent": "Select parent lock",
+          "notify_script": "Notification Script",
+          "hide_pins": "Hide PINs in UI?"
+        },
+        "data_description": {
+          "notify_script": "If left blank, will default to script.locksmithy_[lock_name]_manual_notify"
+        },
+        "description": "Velg låsen du vil sette opp og kodesporene du vil opprette.",
+        "title": "LockSmithy"
+      }
+    }
+  }
+}

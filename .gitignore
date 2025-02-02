@@ -1,0 +1,26 @@
+/bin
+/lib
+/pyvenv.cfg
+*.pyc
+.vscode
+.DS_Store
+Thumbs.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.tox
+__pycache__/
+.ruff_cache/
+.mypy_cache/
+*.pyc
+.coverage
+coverage.xml
