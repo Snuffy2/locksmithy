@@ -21,6 +21,5 @@ venv.bak/
 __pycache__/
 .ruff_cache/
 .mypy_cache/
-*.pyc
 .coverage
 coverage.xml
