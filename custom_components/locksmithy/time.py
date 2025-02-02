@@ -148,21 +148,6 @@ class LockSmithyTime(LockSmithyEntity, TimeEntity):
                 self.async_write_ha_state()
                 return
 
-        # if (
-        #     self._property.endswith(".time_start")
-        #     or self._property.endswith(".time_end")
-        # ) and (
-        #     not self._lslock.code_slots[self._code_slot]
-        #     .accesslimit_day_of_week[self._day_of_week_num]
-        #     .dow_enabled
-        #     or not self._lslock.code_slots[self._code_slot]
-        #     .accesslimit_day_of_week[self._day_of_week_num]
-        #     .limit_by_time
-        # ):
-        #     self._attr_available = False
-        #     self.async_write_ha_state()
-        #     return
-
         self._attr_available = True
         self._attr_native_value = self._get_property_value()
         self.async_write_ha_state()

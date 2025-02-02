@@ -95,6 +95,6 @@ class LockSmithyBinarySensor(LockSmithyEntity, BinarySensorEntity):
 
     @callback
     def _handle_coordinator_update(self) -> None:
-        # _LOGGER.debug(f"[Binary Sensor handle_coordinator_update] self.coordinator.data: {self.coordinator.data}")
+        # _LOGGER.debug("[Binary Sensor handle_coordinator_update] self.coordinator.data: %s", self.coordinator.data)
         self._attr_is_on = self._get_property_value()
         self.async_write_ha_state()

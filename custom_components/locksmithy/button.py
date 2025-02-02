@@ -99,7 +99,11 @@ class LockSmithyButton(LockSmithyEntity, ButtonEntity):
         self.async_write_ha_state()
 
     async def async_press(self) -> None:
-        """Take action when button is pressed."""
+        """Handle button press event.
+
+        For reset_lock: Resets the entire lock to factory settings.
+        For code slot reset: Clears the PIN and resets all settings for the specific slot.
+        """
         if self._property.endswith(".reset_lock"):
             await self.coordinator.reset_lock(
                 config_entry_id=self._config_entry.entry_id,

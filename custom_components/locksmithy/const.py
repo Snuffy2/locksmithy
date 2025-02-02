@@ -321,22 +321,6 @@ LOCK_ACTIVITY_MAP: list[MutableMapping[str, Any]] = [
         "access_control": 18,
         "zwavejs_event": 18,
     },
-    {
-        "name": "New User Code Added",
-        "action": UNKNOWN,
-        "method": LockMethod.KEYPAD,
-        "alarm_type": UNKNOWN,
-        "access_control": 14,
-        "zwavejs_event": 14,
-    },
-    {
-        "name": "New Program Code Entered",
-        "action": UNKNOWN,
-        "method": LockMethod.KEYPAD,
-        "alarm_type": UNKNOWN,
-        "access_control": 18,
-        "zwavejs_event": 18,
-    },
 ]
 
 LOCK_STATE_MAP: MutableMapping[str, MutableMapping[str, int]] = {
