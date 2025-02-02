@@ -54,3 +54,29 @@ clear_pin:
           max: 100
           step: 1
           mode: box
+
+import_from_keymaster:
+  name: Import from keymaster
+  description: Import keymaster details into a LockSmithy lock
+  fields:
+    config_entry_id:
+      name: LockSmithy Lock
+      description: The LockSmithy lock to import the keymaster lock details into
+      required: true
+      selector:
+        config_entry:
+          integration: locksmithy
+    keymaster_config_entry_id:
+      name: keymaster Lock
+      description: The keymaster lock details to export
+      required: true
+      selector:
+        config_entry:
+          integration: keymaster
+    delete_package_files:
+      name: Delete Package Files
+      description: Delete package files for selected keymaster lock
+      required: true
+      default: true
+      selector:
+        boolean:
