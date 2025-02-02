@@ -1,0 +1,14 @@
+mypy
+ruff
+zwave-js-server-python
+pyserial
+pyudev
+aiohttp_cors
+asyncio_mqtt
+pydispatcher
+zeroconf
+types-python-dateutil
+types-PyMySQL
+types-PyYAML
+types-pyRFC3339
+types-requests

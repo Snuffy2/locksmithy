@@ -1,0 +1,7 @@
+{
+  "name": "LockSmithy",
+  "zip_release": true,
+  "filename": "locksmithy.zip",
+  "homeassistant": "2024.5.0b0",
+  "persistent_directory": "json_lslocks"
+}

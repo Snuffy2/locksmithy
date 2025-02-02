@@ -1,0 +1,18 @@
+{
+  "domain": "locksmithy",
+  "name": "LockSmithy",
+  "after_dependencies": [
+    "automation",
+    "script",
+    "template",
+    "zwave_js"
+  ],
+  "codeowners": ["@Snuffy2"],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/Snuffy2/locksmithy",
+  "iot_class": "local_polling",
+  "issue_tracker": "https://github.com/Snuffy2/locksmithy/issues",
+  "requirements": [],
+  "version": "v0.0.0"
+}
