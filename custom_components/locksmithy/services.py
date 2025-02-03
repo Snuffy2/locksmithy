@@ -12,6 +12,8 @@ from homeassistant.helpers import selector
 from .const import (
     ATTR_CODE_SLOT,
     ATTR_CONFIG_ENTRY_ID,
+    ATTR_DELETE_PACKAGE_FILES,
+    ATTR_KEYMASTER_CONFIG_ENTRY_ID,
     ATTR_PIN,
     CONF_DOOR_SENSOR_ENTITY_ID,
     CONF_LOCK_ENTITY_ID,
@@ -22,10 +24,12 @@ from .const import (
     COORDINATOR,
     DOMAIN,
     SERVICE_CLEAR_PIN,
+    SERVICE_IMPORT_FROM_KEYMASTER,
     SERVICE_REGENERATE_LOVELACE,
     SERVICE_UPDATE_PIN,
 )
 from .coordinator import LockSmithyCoordinator
+from .import_from_km import import_from_keymaster
 from .lovelace import generate_lovelace
 
 if TYPE_CHECKING:
@@ -90,6 +94,36 @@ async def async_setup_services(hass: HomeAssistant) -> None:
                 lock_entity=config_entry.data[CONF_LOCK_ENTITY_ID],
                 door_sensor=config_entry.data.get(CONF_DOOR_SENSOR_ENTITY_ID),
             )
+
+    async def service_import_from_keymaster(service: ServiceCall) -> None:
+        """Import settings from a keymaster lock."""
+        _LOGGER.debug("[service_import_from_keymaster] service.data: %s", service.data)
+
+        if not await import_from_keymaster(hass=hass, service=service):
+            raise ServiceValidationError("[import_from_keymaster] Import failed")
+            return
+        _LOGGER.info("[import_from_keymaster] Import complete")
+
+    hass.services.async_register(
+        DOMAIN,
+        SERVICE_IMPORT_FROM_KEYMASTER,
+        service_import_from_keymaster,
+        schema=vol.Schema(
+            {
+                vol.Required(ATTR_KEYMASTER_CONFIG_ENTRY_ID): selector.ConfigEntrySelector(
+                    {
+                        "integration": "keymaster",
+                    }
+                ),
+                vol.Required(ATTR_CONFIG_ENTRY_ID): selector.ConfigEntrySelector(
+                    {
+                        "integration": DOMAIN,
+                    }
+                ),
+                vol.Required(ATTR_DELETE_PACKAGE_FILES): bool,
+            }
+        ),
+    )
 
     hass.services.async_register(
         DOMAIN,

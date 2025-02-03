@@ -37,16 +37,6 @@ from .lock import LockSmithyCodeSlot, LockSmithyCodeSlotDayOfWeek, LockSmithyLoc
 from .lovelace import generate_lovelace
 from .services import async_setup_services
 
-# from .const import (
-#     CONF_ALARM_LEVEL,
-#     CONF_ALARM_TYPE,
-#     CONF_CHILD_LOCKS_FILE,
-#     CONF_ENTITY_ID,
-#     CONF_HIDE_PINS,
-#     DEFAULT_HIDE_PINS,
-# )
-# from .migrate import migrate_2to3
-
 _LOGGER: logging.Logger = logging.getLogger(__name__)
 CONFIG_SCHEMA = cv.config_entry_only_config_schema(DOMAIN)
 
@@ -217,33 +207,3 @@ async def delete_coordinator(hass: HomeAssistant, _: dt) -> None:
         await hass.async_add_executor_job(coordinator.delete_json)
         await coordinator.async_shutdown()
         hass.data.pop(DOMAIN, None)
-
-
-# async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:
-#     """Migrate an old config entry."""
-#     version = config_entry.version
-
-#     # 2 -> 3: Migrate to integrated functions
-#     if version == 2:
-#         _LOGGER.debug("Migrating from config version %s", version)
-#         if not await migrate_2to3(hass=hass, config_entry=config_entry):
-#             return False
-#         _LOGGER.debug("Migration to version %s complete", config_entry.version)
-
-#     # 1 -> 2: Migrate to new keys
-#     if version == 1:
-#         _LOGGER.debug("Migrating from version %s", version)
-#         data = config_entry.data.copy()
-
-#         data[CONF_ALARM_LEVEL_OR_USER_CODE_ENTITY_ID] = data.pop(CONF_ALARM_LEVEL, None)
-#         data[CONF_ALARM_TYPE_OR_ACCESS_CONTROL_ENTITY_ID] = data.pop(CONF_ALARM_TYPE, None)
-#         data[CONF_LOCK_ENTITY_ID] = data.pop(CONF_ENTITY_ID)
-#         if CONF_HIDE_PINS not in data:
-#             data[CONF_HIDE_PINS] = DEFAULT_HIDE_PINS
-#         data[CONF_CHILD_LOCKS_FILE] = data.get(CONF_CHILD_LOCKS_FILE, "")
-
-#         hass.config_entries.async_update_entry(entry=config_entry, data=data)
-#         config_entry.version = 2
-#         _LOGGER.debug("Migration to version %s complete", config_entry.version)
-
-#     return True

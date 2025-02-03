@@ -45,7 +45,7 @@ _LOGGER: logging.Logger = logging.getLogger(__name__)
 class LockSmithyConfigFlow(ConfigFlow, domain=DOMAIN):
     """Config flow for LockSmithy."""
 
-    VERSION: int = 3
+    VERSION: int = 1
     DEFAULTS: MutableMapping[str, Any] = {
         CONF_SLOTS: DEFAULT_CODE_SLOTS,
         CONF_START: DEFAULT_START,

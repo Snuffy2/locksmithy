@@ -50,6 +50,8 @@ ATTR_NAME = "lockname"
 ATTR_NODE_ID = "node_id"
 ATTR_PIN = "pin"
 ATTR_USER_CODE = "usercode"
+ATTR_KEYMASTER_CONFIG_ENTRY_ID = "keymaster_config_entry_id"
+ATTR_DELETE_PACKAGE_FILES = "delete_package_files"
 
 # Configuration Properties
 CONF_ALARM_LEVEL = "alarm_level"
@@ -83,6 +85,7 @@ UNKNOWN = "unknown"
 SERVICE_UPDATE_PIN = "update_pin"
 SERVICE_CLEAR_PIN = "clear_pin"
 SERVICE_REGENERATE_LOVELACE = "regenerate_lovelace"
+SERVICE_IMPORT_FROM_KEYMASTER = "import_from_keymaster"
 
 DAY_NAMES: list[str] = [
     "Monday",
